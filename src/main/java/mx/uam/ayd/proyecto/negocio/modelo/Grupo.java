@@ -18,7 +18,7 @@ import lombok.Data;
  * Entidad de negocio Grupo
  * 
  * @author humbertocervantes
- *
+ *1.18.12
  */
 @Entity
 @Data

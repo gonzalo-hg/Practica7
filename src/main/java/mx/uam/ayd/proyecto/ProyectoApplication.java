@@ -54,7 +54,7 @@ public class ProyectoApplication {
 		
 		inicializaBD();
 		
-		controlPrincipal.inicia();
+		//controlPrincipal.inicia();
 	}
 	
 	

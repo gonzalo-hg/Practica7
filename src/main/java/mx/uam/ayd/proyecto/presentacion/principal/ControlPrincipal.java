@@ -1,10 +1,8 @@
 package mx.uam.ayd.proyecto.presentacion.principal;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import mx.uam.ayd.proyecto.presentacion.agregarUsuario.ControlAgregarUsuario;
-import mx.uam.ayd.proyecto.presentacion.listarUsuarios.ControlListarUsuarios;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Esta clase lleva el flujo de control de la ventana principal
@@ -12,42 +10,21 @@ import mx.uam.ayd.proyecto.presentacion.listarUsuarios.ControlListarUsuarios;
  * @author humbertocervantes
  *
  */
-@Component
+@Controller
 public class ControlPrincipal {
-
-	@Autowired
-	private ControlAgregarUsuario controlAgregarUsuario;
-	
-	@Autowired
-	private ControlListarUsuarios controlListarUsuarios;
-
-	@Autowired
-	private VentanaPrincipal ventana;
 	
 	/**
-	 * Inicia el flujo de control de la ventana principal
-	 * 
-	 */
-	public void inicia() {
+		 * Este método está mapeado a la raíz del sitio
+		 * 
+		 * @param model
+		 * @return
+		 */
+		@RequestMapping(value = "/")
+	    public String getAgregarUsuario(Model model) {
+	        
+				// Redirige a la vista principal
+	    		return "vistaPrincipal/Principal";
+	    	
+	    }
 
-		ventana.muestra(this);
-	}
-
-	/**
-	 * Método que arranca la historia de usuario "agregar usuario"
-	 * 
-	 */
-	public void agregarUsuario() {
-		
-		controlAgregarUsuario.inicia();
-		
-	}
-	
-	/**
-	 * Método que arranca la historia de usuario "listar usuarios"
-	 * 
-	 */
-	public void listarUsuarios() {
-		controlListarUsuarios.inicia();
-	}
 }
